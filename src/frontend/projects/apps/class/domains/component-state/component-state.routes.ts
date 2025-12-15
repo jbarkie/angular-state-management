@@ -7,10 +7,12 @@ import { Basic } from './pages/signals/basic';
 import { ComputedSignals } from './pages/signals/computed';
 import { linkedSignal } from '@angular/core';
 import { Linked } from './pages/signals/linked';
+import { payStore } from './pages/signals/stores/pay';
 
 export const componentStateRoutes: FeatureRoutes = [
   {
     path: '',
+    providers: [payStore],
     component: Home,
     children: [
       {
