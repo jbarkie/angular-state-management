@@ -5,7 +5,6 @@ import { payStore } from './stores/pay';
   selector: 'app-computed-signals',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
-  providers: [payStore],
   viewProviders: [],
   template: `
     <p>Computed Signals Component</p>
