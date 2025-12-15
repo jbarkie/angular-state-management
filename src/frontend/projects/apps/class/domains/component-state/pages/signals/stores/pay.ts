@@ -1,4 +1,12 @@
-import { signalStore, withHooks, withState } from '@ngrx/signals';
+import { computed } from '@angular/core';
+import {
+  patchState,
+  signalStore,
+  withComputed,
+  withHooks,
+  withMethods,
+  withState,
+} from '@ngrx/signals';
 
 type PayInfo = {
   hourlyRate: number;
@@ -6,8 +14,8 @@ type PayInfo = {
 };
 
 const initialState: PayInfo = {
-  hourlyRate: 0,
-  hoursWorked: 0,
+  hourlyRate: 25.59,
+  hoursWorked: 40,
 };
 
 export const payStore = signalStore(
@@ -19,6 +27,26 @@ export const payStore = signalStore(
     onDestroy() {
       console.log('Pay Store destroyed');
     },
+  }),
+  withMethods((store) => {
+    // injection context
+    // const client = inject(HttpClient);
+    return {
+      add: (hours: number) => {
+        return patchState(store, {
+          hoursWorked: store.hoursWorked() + hours,
+        });
+        // return {
+        //   hoursWorked: store.hoursWorked() + hours,
+        //   hourlyRate: store.hourlyRate(),
+        // };
+      },
+    };
+  }),
+  withComputed((store) => {
+    return {
+      totalPay: computed(() => store.hourlyRate() * store.hoursWorked()),
+    };
   }),
 );
 
