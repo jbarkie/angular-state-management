@@ -1,3 +1,4 @@
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed } from '@angular/core';
 import {
   patchState,
@@ -19,6 +20,7 @@ const initialState: PayInfo = {
 };
 
 export const payStore = signalStore(
+  withDevtools('Pay Store'),
   withState<PayInfo>(initialState),
   withHooks({
     onInit() {
