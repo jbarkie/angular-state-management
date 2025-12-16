@@ -1,12 +1,12 @@
 import { DatePipe, JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { FeaturePage } from '@app-shell/features/feature-page';
-import { List } from './lists/list';
-import { ApiMovie, MovieRatings } from './lists/types';
 import { HttpClient, httpResource } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop'; // this is the stuff for you have rxjs observables, and want to make a signal.
+import { FeaturePage } from '@app-shell/features/feature-page';
 import { map } from 'rxjs';
 import { movieStore } from '../stores/movie';
+import { List } from './lists/list';
+import { ApiMovie } from './lists/types';
 
 @Component({
   selector: 'app-movies-pages-home',
