@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FeaturePage } from '@app-shell/features/feature-page';
 import { movieStore } from '../stores/movie';
 import { ProseBlock } from '@app-ui/prose-block';
 import { DialogCloseDirective } from '@ngneat/dialog';
+import { RatingsListener } from '../stores/ratings-service';
+import { ratingsStore } from '../stores/ratings';
 
 @Component({
   selector: 'app-movies-pages-home',
@@ -27,4 +29,11 @@ import { DialogCloseDirective } from '@ngneat/dialog';
   `,
   styles: ``,
 })
-export class HomePage {}
+export class HomePage {
+  listener = inject(RatingsListener);
+  store = inject(ratingsStore);
+
+  constructor() {
+    this.listener.start();
+  }
+}

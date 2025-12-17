@@ -50,7 +50,10 @@ export const movieAdminStore = signalStore(
       },
 
       resetReview: (id: string) =>
-        patchState(store, updateEntity({ id, changes: {} }, { collection: '_movies' })),
+        patchState(
+          store,
+          updateEntity({ id: id, changes: { rating: 1 } }, { collection: '_movies' }),
+        ),
 
       delete: (id: string) => patchState(store, removeEntity(id, { collection: '_movies' })),
 
