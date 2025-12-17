@@ -11,7 +11,7 @@ import {
 
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed, inject, isDevMode } from '@angular/core';
-import { setEntities, withEntities } from '@ngrx/signals/entities';
+import { removeEntity, setEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { mapResponse } from '@ngrx/operators';
@@ -48,6 +48,11 @@ export const movieAdminStore = signalStore(
         const newDirection = store.sortDirection() === 'asc' ? 'desc' : 'asc';
         patchState(store, { sortingBy, sortDirection: newDirection });
       },
+
+      resetReview: (id: string) =>
+        patchState(store, updateEntity({ id, changes: {} }, { collection: '_movies' })),
+
+      delete: (id: string) => patchState(store, removeEntity(id, { collection: '_movies' })),
 
       _load: rxMethod<void>(
         pipe(
