@@ -24,6 +24,7 @@ import {
   solarMirrorRight,
   solarHelp,
   solarCardSearch,
+  solarVideoFrameCut,
 } from '@ng-icons/solar-icons/outline';
 
 export const navigationIcons = {
@@ -50,6 +51,7 @@ export const navigationIcons = {
   solarDoubleAltArrowRight,
   solarDoubleAltArrowDown,
   solarDoubleAltArrowUp,
+  solarVideoFrameCut,
 } as const;
 
 export type IconName = keyof typeof navigationIcons;
