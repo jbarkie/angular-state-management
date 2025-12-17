@@ -34,6 +34,7 @@ const baseRoutes: AppRoutes = [
       iconName: 'solarVideoFrameCut',
       pageTitle: 'Movie Admin Page',
       requiresAuth: true,
+      hideIfUnauthenticated: true,
       linkDescription: 'Administration of Movies',
     },
   },
