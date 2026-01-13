@@ -6,7 +6,7 @@ public static class AsmAppHostExtensions
     {
         public IResourceBuilder<ContainerResource> AddMockOidcDevelopmentServer()
         {
-            var identity = builder.AddContainer("identity", "ghcr.io/navikt/mock-oauth2-server:3.0.1")
+            var identity = builder.AddContainer("identity", "ccir.prci.com/base_ghcr.io/navikt/mock-oauth2-server:3.0.1")
                 .WithLifetime(ContainerLifetime.Persistent)
                 .WithHttpEndpoint(9069, 8080) // Expose port 9069 on host to 8080 in container
                 .WithBindMount("./MockOauth2/",

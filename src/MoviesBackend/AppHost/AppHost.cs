@@ -9,7 +9,7 @@ var username = builder.AddParameter("username", "user");
 var password = builder.AddParameter("password", "password");
 var postgres = builder.AddPostgres("postgres", username, password, 5432)
     .WithLifetime(ContainerLifetime.Persistent)
-    .WithImage("postgres:17.5");
+    .WithImage("postgres:17");
 
 var scalar = builder.AddScalarApiReference();
 var moviesDb = postgres.AddDatabase("movies");
