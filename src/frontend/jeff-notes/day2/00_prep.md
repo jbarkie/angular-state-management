@@ -5,12 +5,12 @@
 On the first (white) screen:
 
 - Username: studentX (use your number)
-- Password: Hypertheory_Training!
+- Password: (provided by the instructor; not stored in this repository)
 
 On the second (black) screen:
 
 - Username: student (no number)
-- Password: whatever you set it to yesterday
+- Password: (provided by the instructor; not stored in this repository)
 
 # Today
 
